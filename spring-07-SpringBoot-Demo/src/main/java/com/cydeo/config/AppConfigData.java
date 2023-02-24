@@ -7,8 +7,8 @@ import org.springframework.context.annotation.Configuration;
 @Data
 @Configuration // @Component is included of @Configuration. So, used that.
 public class AppConfigData {
-    @Value("${username}")
-    private String userName;
+    @Value("${myUserName}")
+    private String myUserName;
     @Value("${password}")
     private String password;
     @Value("${url}")
