@@ -5,6 +5,7 @@ import com.cydeo.service.CommentService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class CydeoApplication {
@@ -21,6 +22,13 @@ public class CydeoApplication {
 
         commentService.printConfigData();
         commentService.printDbConfigData();
+
+        String bean = container.getBean(String.class);
+        System.out.println(bean);
+    }
+    @Bean
+    public String stringBean(){ // If we add this method, we need @Bean
+        return "Cydeo";
     }
 
 }
