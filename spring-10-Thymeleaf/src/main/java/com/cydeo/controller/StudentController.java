@@ -35,9 +35,9 @@ public class StudentController {
     }
 
     @RequestMapping("/welcome") // localhost:8080/student/welcome
-    public String welcome(@RequestParam String name){
+    public String welcome(){
 
-        System.out.println(name);
+
         return "student/welcome";
     }
 }
