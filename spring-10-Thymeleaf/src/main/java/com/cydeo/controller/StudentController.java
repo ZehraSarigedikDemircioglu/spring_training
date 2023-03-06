@@ -24,6 +24,7 @@ public class StudentController {
     // So, instead of we can use @RequestMapping("/student") at the class level, basically it concatenates
 
     @RequestMapping("/register") // localhost:8080/student/register
+    // @RequestMapping(value = "/register",method = RequestMethod.GET) this get method is default in Spring
     public String register(Model model){
         model.addAttribute("students", DataGenerator.createStudent());
         return "student/register";
