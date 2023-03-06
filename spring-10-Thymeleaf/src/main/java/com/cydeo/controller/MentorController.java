@@ -57,7 +57,7 @@ public class MentorController {
 
 //        return "mentor/mentor-register";
 //        no need repeated codes, it comes redirect:
-//        each completed registration, page will refresh with empty form and gives me register
+//        each completed registration, page will refresh with empty form and gives me register page
         return "redirect:/mentor/register";
     }
 
