@@ -1,5 +1,7 @@
 package com.cydeo.entity;
 
+import com.cydeo.enums.Gender;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -23,5 +25,12 @@ public class Student {
     private LocalTime birthTime;
     @Column(columnDefinition = "TIMESTAMP")
     private LocalDateTime birthDateTime;
+
+
+    @Enumerated(EnumType.STRING) // without this annotation, gender in table was int as auto,
+    // and after using this annotation, it became varchar(255) as String, means MALE or FEMALE
+    // and we always use String
+//    @Enumerated(EnumType.ORDINAL)
+    private Gender gender;
 
 }
