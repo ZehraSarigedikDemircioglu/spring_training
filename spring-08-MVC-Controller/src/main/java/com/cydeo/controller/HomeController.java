@@ -20,7 +20,7 @@ public class HomeController {
         return "home.html";
     }
 
-    @RequestMapping ({"/apple", "orange"})// when /apple or /orange put, it occurs home page
+    @RequestMapping ({"/apple", "/orange"})// when /apple or /orange put, it occurs home page
     public String getHomePage4(){
         return "home.html";
     }
