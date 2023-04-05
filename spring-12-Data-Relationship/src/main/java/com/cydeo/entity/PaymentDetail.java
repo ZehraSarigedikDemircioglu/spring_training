@@ -20,6 +20,9 @@ public class PaymentDetail {
     private BigDecimal commissionAmount;
     @Column(columnDefinition = "DATE")
     private LocalDate payoutDate;
+    @OneToOne(mappedBy = "paymentDetail") // name has to match with field name
+    // do not create foreign key, so it will not any foreign key in the table
+    private Payment payment;
 
     public PaymentDetail(BigDecimal merchantPayoutAmount, BigDecimal commissionAmount, LocalDate payoutDate) {
         this.merchantPayoutAmount = merchantPayoutAmount;
