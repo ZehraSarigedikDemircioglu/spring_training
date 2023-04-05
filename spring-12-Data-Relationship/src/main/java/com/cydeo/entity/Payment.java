@@ -21,7 +21,8 @@ public class Payment {
     private BigDecimal amount;
     @Enumerated(EnumType.STRING)
     private Status paymentStatus;
-    @OneToOne
+    // @OneToOne(cascade = CascadeType.ALL) // same action will happen into the associated entity. payment <=> payment details // never use that
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}) // persist = save, usually use this, child saved and does not affect from changes, parent affected from changes like delete method
     // @JoinColumn(name = "payment_detail_id") change the name of foreign key, but optional since already provided automatically
     private PaymentDetail paymentDetail;
 
