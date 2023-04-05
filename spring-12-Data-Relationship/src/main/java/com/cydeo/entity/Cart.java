@@ -7,7 +7,6 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "carts")
 @NoArgsConstructor
 @Data
 public class Cart {
