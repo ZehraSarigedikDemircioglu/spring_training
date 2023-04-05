@@ -21,6 +21,7 @@ public class Payment {
     private BigDecimal amount;
     @Enumerated(EnumType.STRING)
     private Status paymentStatus;
+    private PaymentDetail paymentDetail;
 
     public Payment(LocalDate createdDate, BigDecimal amount, Status paymentStatus) {
         this.createdDate = createdDate;
