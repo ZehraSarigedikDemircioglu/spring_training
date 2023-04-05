@@ -18,7 +18,7 @@ public class Item {
 
     private String name;
     private String code;
-    @ManyToMany(mappedBy = "items") // it will create foreign key, but no table using mappedBy
+    @ManyToMany(mappedBy = "itemList") // it will create foreign key, but no table using mappedBy
     private List<Cart> carts;
 
     public Item(String name, String code) {
