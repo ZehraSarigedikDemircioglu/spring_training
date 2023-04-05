@@ -19,5 +19,5 @@ public class Cart {
     @JoinTable(name = "cart_item_rel", // best practice, rel means relationship
             joinColumns = @JoinColumn(name = "c_id"),
     inverseJoinColumns = @JoinColumn(name = "i_id")) // we can change column names
-    private List<Item> items;
+    private List<Item> itemList;
 }
