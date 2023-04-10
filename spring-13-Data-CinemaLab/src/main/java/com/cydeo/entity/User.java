@@ -10,11 +10,13 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 @Setter
-public class UserAccount extends BaseEntity{
+@Table(name = "user_account")
+public class User extends BaseEntity{
 
-    @OneToOne
-    private AccountDetails accountDetails;
     private String email;
     private String password;
     private String username;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "account_details_id")
+    private Account account;
 }
