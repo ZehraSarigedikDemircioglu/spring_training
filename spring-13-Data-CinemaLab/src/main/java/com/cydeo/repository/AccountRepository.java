@@ -1,4 +1,7 @@
 package com.cydeo.repository;
 
-public interface AccountRepository {
+import com.cydeo.entity.AccountDetails;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface AccountRepository extends JpaRepository<AccountDetails, Long> {
 }
