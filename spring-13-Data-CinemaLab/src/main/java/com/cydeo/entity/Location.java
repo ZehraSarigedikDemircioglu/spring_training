@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.Entity;
 
+
 @Entity
 @NoArgsConstructor
 @Getter
@@ -14,7 +15,7 @@ import javax.persistence.Entity;
 public class Location extends BaseEntity{
 
     private String name;
-    private String latitude;
+    private String  latitude;
     private String longitude;
     private String country;
     private String city;
