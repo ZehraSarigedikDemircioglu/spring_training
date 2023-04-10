@@ -13,12 +13,12 @@ import java.time.LocalDateTime;
 @Setter
 public class Ticket extends BaseEntity{
 
-    @ManyToOne
-    private MovieCinema movieCinema;
-    @ManyToOne
-    private UserAccount userAccount;
-    @Column(columnDefinition = "TIMESTAMP")
-    private LocalDateTime dateTime;
     private Integer seatNumber;
     private Integer rowNumber;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private MovieCinema movieCinema;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User userAccount;
+    @Column(columnDefinition = "TIMESTAMP")
+    private LocalDateTime dateTime;
 }
