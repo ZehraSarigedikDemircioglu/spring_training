@@ -1,20 +1,19 @@
 package com.cydeo.entity;
 
 import com.cydeo.enums.Role;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 
 import javax.persistence.*;
 
 @Entity
 @NoArgsConstructor
-@Data
-public class AccountDetails {
+@Getter
+@Setter
+public class AccountDetails extends BaseEntity{
 
-    @javax.persistence.Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
     private String name;
     private String address;
     private String country;
@@ -24,6 +23,6 @@ public class AccountDetails {
     private String postalCode;
     @Enumerated(EnumType.STRING)
     private Role role;
-    @OneToOne
-    private UserAccount userAccount;
+//    @OneToOne
+//    private UserAccount userAccount;
 }
