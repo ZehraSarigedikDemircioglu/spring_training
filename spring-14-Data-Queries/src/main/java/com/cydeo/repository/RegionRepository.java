@@ -10,6 +10,7 @@ public interface RegionRepository extends JpaRepository<Region, Integer> {
     // Display all regions in Canada
     // select * from regions where country = Canada
     // select = find, read, query, count, or get
+    // by = where
     List<Region> findByCountry(String country);
     List<Region> getByCountry(String country); // it is same with findByCountry query
 
