@@ -69,4 +69,28 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
     // before
     @Query("select e from Employee e where e.hireDate > ?1")
     List<Employee> retrieveEmployeeHireDateBefore(LocalDate date);
+
+    // null
+    @Query("select e from Employee e where e.email is null")
+    List<Employee> retrieveEmployeeEmailIsNull();
+
+    // not null
+    @Query("select e from Employee e where e.email is not null")
+    List<Employee> retrieveEmployeeEmailIsNotNull();
+
+    // Sorting in Asc Order
+    @Query("select e from Employee e order by e.salary")
+    List<Employee> retrieveEmployeeSalaryOrderAsc();
+
+    // Descending in Asc Order
+    @Query("select e from Employee e order by e.salary desc")
+    List<Employee> retrieveEmployeeSalaryOrderDesc();
+
+    // Native Query
+    // Pure SQL way
+    @Query(value = "select * from employees where salary = ?1", nativeQuery = true)
+    List<Employee> retrieveEmployeeDetailBySalary(int salary);
+
+    // Named
+
 }
