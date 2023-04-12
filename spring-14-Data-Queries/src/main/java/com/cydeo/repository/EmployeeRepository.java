@@ -40,4 +40,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
     List<Employee> findByEmailIsNull();
     @Query("select e from Employee e where e.email = 'npointona@vistaprint.com'") // through class name
     Employee retrieveEmployeeDetail();
+
+    @Query("select e.salary from Employee e where e.email = 'npointona@vistaprint.com'")
+    Integer retrieveEmployeeSalary();
 }
