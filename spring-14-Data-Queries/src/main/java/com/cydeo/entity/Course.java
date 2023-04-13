@@ -3,7 +3,6 @@ package com.cydeo.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.procedure.spi.ParameterRegistrationImplementor;
 
 import javax.persistence.*;
 
