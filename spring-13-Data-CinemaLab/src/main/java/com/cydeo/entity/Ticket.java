@@ -21,4 +21,13 @@ public class Ticket extends BaseEntity{
     private User userAccount;
     @Column(columnDefinition = "TIMESTAMP")
     private LocalDateTime dateTime;
+
+    @Override
+    public String toString() {
+        return "Ticket{" +
+                "seatNumber=" + seatNumber +
+                ", rowNumber=" + rowNumber +
+                ", dateTime=" + dateTime +
+                '}';
+    }
 }
