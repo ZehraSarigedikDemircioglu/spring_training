@@ -18,4 +18,11 @@ public class MovieCinema extends BaseEntity{
     private Movie movie;
     @ManyToOne(fetch = FetchType.LAZY) // behind the scene, spring boot bring all data even if we do not use that time
     private Cinema cinema;
+
+    @Override
+    public String toString() {
+        return "MovieCinema{" +
+                "dateTime=" + dateTime +
+                '}';
+    }
 }
