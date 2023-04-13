@@ -25,7 +25,7 @@ public interface MovieCinemaRepository extends JpaRepository<MovieCinema, Long> 
 
 
     //Write a derived query to list all movie cinemas with higher than a specific date
-    List<MovieCinema> findAllByLOrDateTimeAfter(LocalDateTime date);
+    List<MovieCinema> findAllByDateTimeAfter(LocalDateTime date);
 
 
     //Write a derived query to find the top 3 expensive movies
@@ -52,6 +52,7 @@ public interface MovieCinemaRepository extends JpaRepository<MovieCinema, Long> 
     //Write a native query to count all movie cinemas by cinema id
     @Query(value = "select count(*) from movie_cinema where cinema_id = ?1", nativeQuery = true)
     Integer countByCinemaId(Long id);
+
 
 
     //Write a native query that returns all movie cinemas by location name
