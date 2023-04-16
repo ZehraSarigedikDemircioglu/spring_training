@@ -3,11 +3,12 @@ package com.cydeo.repository;
 import com.cydeo.entity.MovieCinema;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.List;
-
+@Repository
 public interface MovieCinemaRepository extends JpaRepository<MovieCinema, Long> {
 
     // ------------------- DERIVED QUERIES ------------------- //
@@ -17,11 +18,11 @@ public interface MovieCinemaRepository extends JpaRepository<MovieCinema, Long> 
 
 
     //Write a derived query to count all movie cinemas with a specific cinema id
-    Integer countByCinema_Id(Long id);
+//    Integer countByCinema_Id(Long id);
 
 
     //Write a derived query to count all movie cinemas with a specific movie id
-    Integer countByMovie_Id(Long id);
+//    Integer countByMovie_Id(Long id);
 
 
     //Write a derived query to list all movie cinemas with higher than a specific date
