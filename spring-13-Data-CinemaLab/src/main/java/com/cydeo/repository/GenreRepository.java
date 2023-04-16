@@ -3,6 +3,8 @@ package com.cydeo.repository;
 import com.cydeo.entity.Genre;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
 import java.util.List;
 
 public interface GenreRepository extends JpaRepository<Genre, Long> {
@@ -17,6 +19,6 @@ public interface GenreRepository extends JpaRepository<Genre, Long> {
     // ------------------- Native QUERIES ------------------- //
 
     //Write a native query that returns genres by containing name
-    @Query(value = "select g from Genre g where name ilike %?1%", nativeQuery = true)
-    List<Genre> findByNameContains(String name);
+    @Query(value = "select g from genre g where name ilike %?1%", nativeQuery = true)
+    List<Genre> findByNameContains(@Param("name") String name);
 }
