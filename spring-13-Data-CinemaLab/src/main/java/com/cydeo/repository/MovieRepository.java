@@ -40,7 +40,7 @@ public interface MovieRepository extends JpaRepository<Movie, Long> {
 
     //Write a JPQL query that returns all movie names
     @Query("select m.name from Movie m")
-    List<Movie> retrieveAllMovieNames();
+    List<String> retrieveAllMovieNames();
 
 
     // ------------------- Native QUERIES ------------------- //
