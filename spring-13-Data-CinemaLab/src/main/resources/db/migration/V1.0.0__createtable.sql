@@ -105,6 +105,7 @@ create table public.ticket
     user_account_id bigint
         constraint fk7tjg2ere9k3sy94bt7c8a2jbt
             references public.user_account
+
 );
 
 
