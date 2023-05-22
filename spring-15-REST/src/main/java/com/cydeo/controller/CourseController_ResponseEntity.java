@@ -43,7 +43,6 @@ public class CourseController_ResponseEntity {
                 .status(HttpStatus.CREATED)
                 .header("Operation","Create")
                 .body(courseService.createCourse(course));
-
     }
 
     @DeleteMapping("{id}")
