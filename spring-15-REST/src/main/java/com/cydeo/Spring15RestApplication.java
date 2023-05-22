@@ -1,4 +1,4 @@
-package com.cydeo.spring15rest;
+package com.cydeo;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
