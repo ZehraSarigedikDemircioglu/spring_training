@@ -22,7 +22,7 @@ public class ResponseWrapper { // customize the output
         this.success = true;
     }
 
-    public ResponseWrapper(String message) {
+    public ResponseWrapper(String message) { // this is for after delete method, no need data after delete
         this.message = message;
         this.code = HttpStatus.OK.value();
         this.success = true;
