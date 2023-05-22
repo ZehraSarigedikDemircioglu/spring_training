@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController // @Controller + @ResponseBody
-@RequestMapping("/courses/api/v1")
+@RequestMapping("/courses")
 public class CourseController {
 
     private final CourseService courseService;
@@ -22,12 +22,12 @@ public class CourseController {
         return courseService.getCourses();
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public CourseDTO getCourseById(@PathVariable("id") long courseId){
         return courseService.getCourseById(courseId);
     }
 
-    @GetMapping("category/{name}")
+    @GetMapping("/category/{name}")
     public List<CourseDTO> getCourseByCategory(@PathVariable("name") String category){
         return courseService.getCoursesByCategory(category);
 
@@ -35,12 +35,11 @@ public class CourseController {
 
     @PostMapping
     public CourseDTO createCourse(@RequestBody CourseDTO course){
-
         return courseService.createCourse(course);
     }
 
     @PutMapping("{id}")
-    public void updateCourse(@PathVariable("id") long courseId,@RequestBody CourseDTO course){
+    public void updateCourse(@PathVariable("id") long courseId, @RequestBody CourseDTO course){
         courseService.updateCourse(courseId,course);
     }
 
