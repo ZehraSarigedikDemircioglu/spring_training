@@ -31,5 +31,4 @@ public class Consume_FeignClient {
 
     }
 
-
 }
