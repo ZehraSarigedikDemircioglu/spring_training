@@ -18,7 +18,6 @@ import java.util.Map;
 @Generated("jsonschema2pojo")
 public class Employee {
 
-
     @JsonProperty("data")
     private List<Datum> data = null;
     @JsonProperty("total")
