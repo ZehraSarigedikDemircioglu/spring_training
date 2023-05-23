@@ -18,6 +18,7 @@ import java.util.Map;
 @Generated("jsonschema2pojo")
 public class Datum {
 
+
     @JsonProperty("id")
     private String id;
     @JsonProperty("title")
