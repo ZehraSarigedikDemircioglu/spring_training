@@ -49,6 +49,7 @@ public class Consume_RestTemplate {
         HttpEntity<String> entity = new HttpEntity<>(headers);
 
         return restTemplate.exchange("https://dummyapi.io/data/v1/user?limit=10", HttpMethod.GET, entity, Object.class);
+        // use exchange method, whenever you want to pass headers
     }
 
 }
