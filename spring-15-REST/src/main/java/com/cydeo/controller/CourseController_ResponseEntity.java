@@ -56,5 +56,4 @@ public class CourseController_ResponseEntity {
         courseService.updateCourse(courseId, course);
         return ResponseEntity.noContent().build();
     }
-
 }
