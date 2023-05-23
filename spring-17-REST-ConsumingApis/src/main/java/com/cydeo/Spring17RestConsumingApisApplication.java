@@ -25,5 +25,4 @@ public class Spring17RestConsumingApisApplication {
     public ModelMapper mapper() {
         return new ModelMapper();
     }
-
 }
