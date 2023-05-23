@@ -27,7 +27,7 @@ public class Consume_RestTemplate {
     public ResponseEntity<User[]> readAllUsers() { // accept array
 
         return restTemplate.getForEntity(URI, User[].class);
-        // we can customize using getForEntity using User. Let's say I do not want to show phone, so i can put @JsonIgnore at the field, so it will not show on the file.
+        // we can customize using getForEntity using User(DTO). Let's say I do not want to show phone, so i can put @JsonIgnore at the field, so it will not show on the file.
     }
 
     @GetMapping("{id}")
