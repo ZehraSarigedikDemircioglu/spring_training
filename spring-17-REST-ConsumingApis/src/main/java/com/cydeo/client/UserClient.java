@@ -11,5 +11,6 @@ public interface UserClient {
 
     @GetMapping("/users")
     List<User> getUsers();
-
+    // whenever we call this method, it will keep this and end point "https://jsonplaceholder.typicode.com/users" execute.
+    // json doc will assign to List<User>
 }
