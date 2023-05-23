@@ -19,35 +19,36 @@ public class Consume_RestTemplate {
     private final RestTemplate restTemplate;
 
     public Consume_RestTemplate(RestTemplate restTemplate) {
+
         this.restTemplate = restTemplate;
     }
 
     @GetMapping
-    public ResponseEntity<User[]> readAllUsers(){
+    public ResponseEntity<User[]> readAllUsers() { // accept array
 
         return restTemplate.getForEntity(URI, User[].class);
+        // we can customize using getForEntity using User. Let's say I do not want to show phone, so i can put @JsonIgnore at the field, so it will not show on the file.
     }
 
     @GetMapping("{id}")
-    public Object readUser(@PathVariable("id") Integer id){
+    public Object readUser(@PathVariable("id") Integer id) {
 
         String URL = URI + "/{id}";
 
-        return restTemplate.getForObject(URL, Object.class,id);
-
+        return restTemplate.getForObject(URL, Object.class, id);
+        // we can NOT customize this. It will show as it is.
     }
 
     @GetMapping("/test")
-    public ResponseEntity<Object> consumePostFromDummyApi(){
+    public ResponseEntity<Object> consumePostFromDummyApi() {
 
-        HttpHeaders headers =new HttpHeaders();
+        HttpHeaders headers = new HttpHeaders();
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-        headers.set("app-id","6298ebfecd0551211fce37a6");
+        headers.set("app-id", "6298ebfecd0551211fce37a6");
 
         HttpEntity<String> entity = new HttpEntity<>(headers);
 
-        return restTemplate.exchange("https://dummyapi.io/data/v1/user?limit=10", HttpMethod.GET,entity,Object.class);
-
+        return restTemplate.exchange("https://dummyapi.io/data/v1/user?limit=10", HttpMethod.GET, entity, Object.class);
     }
 
 }
