@@ -31,7 +31,6 @@ public class CourseController_ResponseWrapper {
     @GetMapping("{id}")
     public ResponseEntity<ResponseWrapper> getCourseById(@PathVariable("id") long courseId) {
         return ResponseEntity.ok(new ResponseWrapper("course:" + courseId + " is retrieved", courseService.getCourseById(courseId)));
-
     }
 }
 
