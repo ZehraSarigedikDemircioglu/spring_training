@@ -39,7 +39,7 @@ public class UserController {
     }
 
     @PostMapping(consumes = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE}, // consume = accept as a request
-            produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
+            produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE}) // my responses can be xml or json after by using dependency (jackson.dataformat)
     @Operation(summary = "Create a user")
     @ApiResponse(responseCode = "201", description = "User created successfully (CREATED)",
             content = {@Content(mediaType = "application/xml"), @Content(mediaType = "application/json")},
