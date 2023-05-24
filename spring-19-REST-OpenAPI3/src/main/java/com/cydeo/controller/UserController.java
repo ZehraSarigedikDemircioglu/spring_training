@@ -30,7 +30,7 @@ public class UserController {
     @Operation(summary = "Read all users")
     @ApiResponses(value = { // multiple responses
             @ApiResponse(responseCode = "200", description = "Successfully retrieved users (OK)",
-            content = @Content(mediaType = "application/json")),
+                    content = @Content(mediaType = "application/json")),
             @ApiResponse(responseCode = "400", description = "Bad Request", content = @Content), // this response, you are not gonna see any response using @Content
             @ApiResponse(responseCode = "404", description = "Not Found", content = @Content)
     })
@@ -38,12 +38,12 @@ public class UserController {
         return ResponseEntity.ok(userService.getUsers());
     }
 
-   @PostMapping//(consumes = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE},
-//                produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
+    @PostMapping(consumes = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE},
+            produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
     @Operation(summary = "Create a user")
     @ApiResponse(responseCode = "201", description = "User created successfully (CREATED)",
-                    content = {@Content(mediaType = "application/xml"), @Content(mediaType = "application/json")},
-                    headers = {@Header(name = "Connection", description = "keep-alive")})
+            content = {@Content(mediaType = "application/xml"), @Content(mediaType = "application/json")},
+            headers = {@Header(name = "Connection", description = "keep-alive")})
     public ResponseEntity<UserDTO> createUser(@RequestBody UserDTO userDTO) {
         return ResponseEntity.status(HttpStatus.CREATED).body(userService.create(userDTO));
     }
