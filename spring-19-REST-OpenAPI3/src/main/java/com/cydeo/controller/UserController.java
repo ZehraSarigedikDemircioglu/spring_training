@@ -27,7 +27,7 @@ public class UserController {
     }
 
     @GetMapping("/list")
-//    @Operation(summary = "Read all users")
+    @Operation(summary = "Read all users")
 //    @ApiResponses(value = {
 //            @ApiResponse(responseCode = "200", description = "Successfully retrieved users (OK)",
 //            content = @Content(mediaType = "application/json")),
@@ -40,7 +40,7 @@ public class UserController {
 
    @PostMapping//(consumes = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE},
 //                produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
-//    @Operation(summary = "Create a user")
+    @Operation(summary = "Create a user")
 //    @ApiResponse(responseCode = "201", description = "User created successfully (CREATED)",
 //                    content = {@Content(mediaType = "application/xml"), @Content(mediaType = "application/json")},
 //                    headers = {@Header(name = "Connection", description = "keep-alive")})
