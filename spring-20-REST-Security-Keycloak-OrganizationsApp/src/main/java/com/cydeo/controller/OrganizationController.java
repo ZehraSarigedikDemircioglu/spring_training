@@ -19,7 +19,7 @@ public class OrganizationController {
     }
 
     @GetMapping("/{organizationId}")
-    @RolesAllowed({"ADMIN","USER"})
+    @RolesAllowed({"ADMIN","USER"}) // only allows for these users
     public ResponseEntity<Organization> getOrganization(@PathVariable("organizationId") Long organizationId) throws Exception {
         return ResponseEntity.ok(organizationService.findById(organizationId));
     }
