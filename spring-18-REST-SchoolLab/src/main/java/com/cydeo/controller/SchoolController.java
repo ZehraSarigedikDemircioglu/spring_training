@@ -105,13 +105,9 @@ public class SchoolController {
         return addressService.create(addressDTO);
     }
 
-//    @PutMapping("/address/{id}")
-//    public void updateCourse(@PathVariable("id") Long courseId, @RequestBody AddressDTO addressDTO) throws Exception {
-//        addressService.update(addressDTO);
-//    }
-
     @PutMapping("/address/{id}")
     public AddressDTO updateAddressById(@PathVariable("id") Long id, @RequestBody AddressDTO addressDTO) throws Exception {
+        addressDTO.setId(id);
         return addressService.update(addressDTO);
     }
 }
