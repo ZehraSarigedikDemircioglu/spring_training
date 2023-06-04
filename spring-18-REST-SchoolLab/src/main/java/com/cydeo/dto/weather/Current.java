@@ -1,16 +1,12 @@
 
-package com.cydeo.dto;
+package com.cydeo.dto.weather;
 
-import java.util.HashMap;
+import com.fasterxml.jackson.annotation.*;
+
+import javax.annotation.Generated;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import javax.annotation.Generated;
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
@@ -32,7 +28,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "is_day"
 })
 @Generated("jsonschema2pojo")
-public class CurrentDTO {
+public class Current {
 
     @JsonProperty("observation_time")
     private String observationTime;
@@ -41,9 +37,9 @@ public class CurrentDTO {
     @JsonProperty("weather_code")
     private Integer weatherCode;
     @JsonProperty("weather_icons")
-    private List<String> weatherIcons = null;
+    private List<String> weatherIcons;
     @JsonProperty("weather_descriptions")
-    private List<String> weatherDescriptions = null;
+    private List<String> weatherDescriptions;
     @JsonProperty("wind_speed")
     private Integer windSpeed;
     @JsonProperty("wind_degree")
@@ -67,7 +63,7 @@ public class CurrentDTO {
     @JsonProperty("is_day")
     private String isDay;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
     @JsonProperty("observation_time")
     public String getObservationTime() {

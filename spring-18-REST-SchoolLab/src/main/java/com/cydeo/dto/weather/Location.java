@@ -1,15 +1,11 @@
 
-package com.cydeo.dto;
+package com.cydeo.dto.weather;
 
-import java.util.HashMap;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.*;
+
 import javax.annotation.Generated;
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
@@ -24,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "utc_offset"
 })
 @Generated("jsonschema2pojo")
-public class LocationDTO {
+public class Location {
 
     @JsonProperty("name")
     private String name;
@@ -45,7 +41,7 @@ public class LocationDTO {
     @JsonProperty("utc_offset")
     private String utcOffset;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
     @JsonProperty("name")
     public String getName() {
