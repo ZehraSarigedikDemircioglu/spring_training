@@ -25,7 +25,7 @@ public class StudentDTO {
 
     private String email;
     private String username;
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY) // we need to set password, but we do not want to show
     private String password;
 
     private LocalDate birthday;
