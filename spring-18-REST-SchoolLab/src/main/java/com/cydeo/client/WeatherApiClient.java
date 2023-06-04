@@ -12,4 +12,5 @@ public interface WeatherApiClient {
 
     @GetMapping("/current")
     WeatherDTO getWeather(@RequestParam(value = "access_key") String key, @RequestParam(value = "query") String city); // Required access key, query
+
 }
