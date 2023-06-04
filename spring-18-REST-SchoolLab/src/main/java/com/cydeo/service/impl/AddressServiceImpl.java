@@ -2,6 +2,7 @@ package com.cydeo.service.impl;
 
 import com.cydeo.client.WeatherApiClient;
 import com.cydeo.dto.AddressDTO;
+import com.cydeo.dto.weather.WeatherDTO;
 import com.cydeo.entity.Address;
 import com.cydeo.repository.AddressRepository;
 import com.cydeo.service.AddressService;
@@ -15,7 +16,7 @@ import java.util.stream.Collectors;
 
 @Service
 public class AddressServiceImpl implements AddressService {
-    @Value("1a9bdf3f8657d95e0ea497b17d5030b2")
+    @Value("${access_key}")
     private String accessKey;
 
     private final AddressRepository addressRepository;
@@ -42,14 +43,14 @@ public class AddressServiceImpl implements AddressService {
                 .orElseThrow(() -> new Exception("No Address Found!"));
         AddressDTO addressDTO = mapperUtil.convert(foundAddress, new AddressDTO());
         //we will get the current temperature and set based on city, return dto
-        addressDTO.setCurrentTemperature(retrieveTemperatureByCity(addressDTO.getCity()));
+        addressDTO.setCurrentTemperature(retrieveTemperatureByCity(addressDTO.getCity()).getCurrent().getTemperature());
 
         return addressDTO;
     }
 
-    private Integer retrieveTemperatureByCity(String city) {
+    private WeatherDTO retrieveTemperatureByCity(String city) {
 
-        return weatherApiClient.getWeather(accessKey, city).getCurrent().getTemperature();
+        return weatherApiClient.getWeather(accessKey, city);
     }
 
     @Override
