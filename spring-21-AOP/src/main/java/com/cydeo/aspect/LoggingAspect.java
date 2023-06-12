@@ -62,14 +62,14 @@ public class LoggingAspect {
 //                , joinPoint.getSignature(), joinPoint.getArgs(), joinPoint.getTarget());
 //    }
 //
-    @Pointcut("@annotation(com.cydeo.annotation.LoggingAnnotation)")
-    public void loggingAnnotationPC() {}
-
-    @Before("loggingAnnotationPC()") // used our custom annotation
-    public void beforeLoggingAnnotation(JoinPoint joinPoint) {
-        logger.info("Before -> Method: {}, Arguments: {}, Target: {}"
-                , joinPoint.getSignature(), joinPoint.getArgs(), joinPoint.getTarget());
-    }
+//    @Pointcut("@annotation(com.cydeo.annotation.LoggingAnnotation)")
+//    public void loggingAnnotationPC() {}
+//
+//    @Before("loggingAnnotationPC()") // used our custom annotation
+//    public void beforeLoggingAnnotation(JoinPoint joinPoint) {
+//        logger.info("Before -> Method: {}, Arguments: {}, Target: {}"
+//                , joinPoint.getSignature(), joinPoint.getArgs(), joinPoint.getTarget());
+//    }
 //
 //    @Pointcut("@annotation(org.springframework.web.bind.annotation.GetMapping)")
 //    public void afterReturningGetMappingAnnotation() {}
@@ -85,7 +85,7 @@ public class LoggingAspect {
 //    }
 //
 //     CourseDTO -> Object     --> This is ok
-//     List<CourseDTO> -> List<Object>     --> This is not ok
+//     List<CourseDTO> -> List<Object>     --> This is not ok. List<Object> could not detect since returning = "results" comes from CourseDTO
 //
 //    @AfterThrowing(pointcut = "afterReturningGetMappingAnnotation()", throwing = "exception")
 //    public void afterThrowingGetMappingOperation(JoinPoint joinPoint, RuntimeException exception) {
@@ -93,27 +93,27 @@ public class LoggingAspect {
 //                , joinPoint.getSignature().toShortString(), exception.getMessage());
 //    }
 
-//    @Pointcut("@annotation(com.cydeo.annotation.LoggingAnnotation)")
-//    public void loggingAnnotationPC() {}
-//
-//    @Around("loggingAnnotationPC()")
-//    public Object anyLoggingAnnotationOperation(ProceedingJoinPoint proceedingJoinPoint) {
-//
-//        logger.info("Before -> Method: {} - Parameter {}"
-//                , proceedingJoinPoint.getSignature().toShortString(), proceedingJoinPoint.getArgs());
-//
-//        Object result = null;
-//
-//        try {
-//            result = proceedingJoinPoint.proceed();
-//        } catch (Throwable throwable) {
-//            throwable.printStackTrace();
-//        }
-//
-//        logger.info("After -> Method: {} - Result: {}"
-//                , proceedingJoinPoint.getSignature().toShortString(), result.toString());
-//        return result;
+    @Pointcut("@annotation(com.cydeo.annotation.LoggingAnnotation)")
+    public void loggingAnnotationPC() {}
 
-//    }
+    @Around("loggingAnnotationPC()") // @Around contains code which is executed before and after the matched method (JoinPoint)
+    public Object anyLoggingAnnotationOperation(ProceedingJoinPoint proceedingJoinPoint) {
+
+        logger.info("Before -> Method: {} - Parameter {}"
+                , proceedingJoinPoint.getSignature().toShortString(), proceedingJoinPoint.getArgs());
+
+        Object result = null;
+
+        try {
+            result = proceedingJoinPoint.proceed(); // calling proceed() on the ProceedingJoinPoint
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+        }
+
+        logger.info("After -> Method: {} - Result: {}"
+                , proceedingJoinPoint.getSignature().toShortString(), result.toString());
+        return result;
+
+    }
 
 }
