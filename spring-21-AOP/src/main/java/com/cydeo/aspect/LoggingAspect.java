@@ -30,19 +30,20 @@ public class LoggingAspect {
 //        // however, it is better to use the first one since we can apply it with different methods
 //    }
 
-    @Pointcut("execution(* com.cydeo.repository.CourseRepository.findById(*))")
-    public void courseRepositoryFindByIdPC() {}
+//    @Pointcut("execution(* com.cydeo.repository.CourseRepository.findById(*))")
+//    public void courseRepositoryFindByIdPC() {}
 //
 //    @Before("courseRepositoryFindByIdPC()")
 //    public void beforeCourseRepositoryFindById(JoinPoint joinPoint) {
 //        logger.info("Before -> Method: {}, Arguments: {}, Target: {}"
 //                , joinPoint.getSignature(), joinPoint.getArgs(), joinPoint.getTarget());
 //    }
-//
-//    @Pointcut("within(com.cydeo.controller..*)")
+
+//    @Pointcut("within(com.cydeo.controller..*)") // any method, sub-package under controller package
 //    public void anyControllerOperation() {}
 //
-//    @Pointcut("@within(org.springframework.stereotype.Service)")
+//    @Pointcut("@within(org.springframework.stereotype.Service)") // any join points within types (target object class)
+    // import org.springframework.stereotype.Service; take from CourseServiceImpl
 //    public void anyServiceOperation() {}
 //
 //    @Before("anyControllerOperation() || anyServiceOperation()")
@@ -51,7 +52,8 @@ public class LoggingAspect {
 //                , joinPoint.getSignature(), joinPoint.getArgs(), joinPoint.getTarget());
 //    }
 //
-//    @Pointcut("@annotation(org.springframework.web.bind.annotation.DeleteMapping)")
+//    @Pointcut("@annotation(org.springframework.web.bind.annotation.DeleteMapping)") // join points where the subject(method) of the join point
+//    // import org.springframework.web.bind.annotation.*; take from CourseController
 //    public void anyDeleteControllerOperation() {}
 //
 //    @Before("anyDeleteControllerOperation()")
@@ -60,14 +62,14 @@ public class LoggingAspect {
 //                , joinPoint.getSignature(), joinPoint.getArgs(), joinPoint.getTarget());
 //    }
 //
-//    @Pointcut("@annotation(com.cydeo.annotation.LoggingAnnotation)")
-//    public void loggingAnnotationPC() {}
-//
-//    @Before("loggingAnnotationPC()")
-//    public void beforeLoggingAnnotation(JoinPoint joinPoint) {
-//        logger.info("Before -> Method: {}, Arguments: {}, Target: {}"
-//                , joinPoint.getSignature(), joinPoint.getArgs(), joinPoint.getTarget());
-//    }
+    @Pointcut("@annotation(com.cydeo.annotation.LoggingAnnotation)")
+    public void loggingAnnotationPC() {}
+
+    @Before("loggingAnnotationPC()") // used our custom annotation
+    public void beforeLoggingAnnotation(JoinPoint joinPoint) {
+        logger.info("Before -> Method: {}, Arguments: {}, Target: {}"
+                , joinPoint.getSignature(), joinPoint.getArgs(), joinPoint.getTarget());
+    }
 //
 //    @Pointcut("@annotation(org.springframework.web.bind.annotation.GetMapping)")
 //    public void afterReturningGetMappingAnnotation() {}
