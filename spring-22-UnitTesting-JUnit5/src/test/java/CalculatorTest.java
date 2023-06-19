@@ -18,7 +18,7 @@ class CalculatorTest {
 
 //        assertThrows(IllegalArgumentException.class, () -> Calculator.add2(3, 2));
 //        assertThrows(AccessDeniedException.class, () -> Calculator.add2(3, 2));
-//        assertThrows(IllegalArgumentException.class, () -> Calculator.add2(3, 2));
+        assertThrows(IllegalArgumentException.class, () -> Calculator.add2(2, 3));
     }
 
     @Test
