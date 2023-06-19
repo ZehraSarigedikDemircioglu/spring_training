@@ -9,6 +9,7 @@ public class CalculatorParameterizedTest {
     void testCase1(String arg) {
         Assertions.assertFalse(arg.isEmpty());
     }
+
     @ParameterizedTest
     @ValueSource(ints = {3, 6, 9})
     void testCase1(int num) {
