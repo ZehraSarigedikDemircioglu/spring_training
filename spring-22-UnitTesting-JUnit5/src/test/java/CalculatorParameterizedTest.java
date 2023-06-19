@@ -24,6 +24,7 @@ public class CalculatorParameterizedTest {
     void testCase3(String arg) {
         Assertions.assertFalse(arg.isEmpty());
     }
+
     @ParameterizedTest
     @MethodSource("stringProvider")
     void testCase4(String arg) {
