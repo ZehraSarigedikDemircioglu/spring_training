@@ -32,9 +32,9 @@ class ProjectServiceImplTest {
     void getByProjectCode_Test() {
 
         // Configuring Mocks
-        // It can be done using Mockito.when() in conjunction with thenReturn (). This process is called stubbing.
 
-        // Given = ready and run to test
+        // Given = preparation ready and run to test
+        // It can be done using Mockito.when() in conjunction with thenReturn (). This process is called stubbing.
         when(projectRepository.findByProjectCode(anyString())).thenReturn(new Project());
         when(projectMapper.convertToDto(any(Project.class))).thenReturn(new ProjectDTO());
 
