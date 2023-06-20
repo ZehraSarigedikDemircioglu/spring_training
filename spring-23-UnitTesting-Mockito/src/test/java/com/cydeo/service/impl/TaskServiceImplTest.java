@@ -60,5 +60,7 @@ class TaskServiceImplTest {
         // Then
         then(taskRepository).should().findById(anyLong());
         then(taskMapper).should(atLeastOnce()).convertToDto(task);
+
+        // Mockito can not apply mock final classes/methods, mock enums, mock static methods/private methods, hasCode() and equals()
     }
 }
