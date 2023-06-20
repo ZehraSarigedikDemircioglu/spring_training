@@ -36,7 +36,7 @@ class TaskServiceImplTest {
         Task task = new Task();
 
         when(taskRepository.findById(id)).thenReturn(Optional.of(task));   // Optional<Task>
-        when(taskMapper.convertToDto(task)).thenReturn(new TaskDTO());
+        when(taskMapper.convertToDto(task)).thenReturn(new TaskDTO()); // mostly use this structure (compare with line 54-55)
 
         // When (Action is happening)
         taskServiceImpl.findById(id);// We are not defining this will be the method I want to test.
@@ -51,7 +51,7 @@ class TaskServiceImplTest {
 
         // Given
         Task task = new Task();
-        given(taskRepository.findById(anyLong())).willReturn(Optional.of(task));
+        given(taskRepository.findById(anyLong())).willReturn(Optional.of(task)); // line 54-55 are same with line 38-39
         given(taskMapper.convertToDto(task)).willReturn(new TaskDTO());
 
         // When
@@ -62,5 +62,4 @@ class TaskServiceImplTest {
         then(taskMapper).should(atLeastOnce()).convertToDto(task);
 
     }
-
 }
