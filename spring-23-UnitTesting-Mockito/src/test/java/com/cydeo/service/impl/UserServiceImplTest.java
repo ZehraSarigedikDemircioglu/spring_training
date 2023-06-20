@@ -44,5 +44,6 @@ class UserServiceImplTest {
 
         inOrder.verify(userRepository).findByUserNameAndIsDeleted("harold@manager.com", false);
         inOrder.verify(userMapper).convertToDto(null);
+
     }
 }
