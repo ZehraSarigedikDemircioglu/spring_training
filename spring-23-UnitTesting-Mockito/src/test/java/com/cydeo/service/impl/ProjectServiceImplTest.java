@@ -62,6 +62,5 @@ class ProjectServiceImplTest {
         verify(projectMapper, never()).convertToDto(any(Project.class));
 
         assertEquals("Project Not Found", throwable.getMessage());
-
     }
 }
