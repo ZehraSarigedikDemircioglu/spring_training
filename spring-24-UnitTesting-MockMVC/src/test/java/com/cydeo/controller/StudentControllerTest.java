@@ -36,7 +36,6 @@ public class StudentControllerTest {
                 .andExpect(content().json("{\"firstName\": \"Mike\", \"lastName\":  \"Smith\", \"age\": 20}"))
                 .andDo(print())
                 .andReturn();
-
     }
 
     @Test
@@ -51,7 +50,6 @@ public class StudentControllerTest {
         // actual   -> {"firstName": "Mike", "lastName":  "Smith", "age": 20}
 
         JSONAssert.assertEquals(expected, actual, false);
-
     }
 
     @Test
@@ -69,7 +67,5 @@ public class StudentControllerTest {
                                 ", {\"firstName\": \"Tom\", \"lastName\":  \"Hanks\", \"age\": 50}]"))
                 .andDo(print())
                 .andReturn();
-
     }
-
 }
