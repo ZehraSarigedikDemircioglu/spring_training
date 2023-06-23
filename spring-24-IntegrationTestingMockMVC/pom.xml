@@ -5,14 +5,14 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.0</version>
+        <version>3.1.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.cydeo</groupId>
-    <artifactId>spring-24-IntegrationTesting-MockMVC</artifactId>
+    <artifactId>spring-24-IntegrationTestingMockMVC</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-24-UnitTesting-MockMVC</name>
-    <description>spring-24-UnitTesting-MockMVC</description>
+    <name>spring-24-IntegrationTestingMockMVC</name>
+    <description>spring-24-IntegrationTestingMockMVC</description>
     <properties>
         <java.version>11</java.version>
     </properties>
