@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.cydeo</groupId>
-    <artifactId>spring-24-UnitTesting-MockMVC</artifactId>
+    <artifactId>spring-24-IntegrationTesting-MockMVC</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>spring-24-UnitTesting-MockMVC</name>
     <description>spring-24-UnitTesting-MockMVC</description>
