@@ -6,10 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class Spring24UnitTestingMockMvcApplication {
+public class Spring24IntegrationTestingMockMvcApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Spring24UnitTestingMockMvcApplication.class, args);
+        SpringApplication.run(Spring24IntegrationTestingMockMvcApplication.class, args);
     }
 
     @Bean
